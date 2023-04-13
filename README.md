@@ -1,6 +1,6 @@
 # first-firebase-app
 This is a react app that uses firebase authentication to allow users to create an account using email and password
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
