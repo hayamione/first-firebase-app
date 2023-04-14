@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout';
  
 const Home = () => {
   const [userDetail, setUserDetail] = useState('');
@@ -10,11 +11,7 @@ const Home = () => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
-              const uid = user.uid;
               setUserDetail(user);
-              // userEmail = user.email;
-              // ...
-              console.log("uid", user.email)
             } else {
               // User is signed out
               // ...
@@ -24,32 +21,16 @@ const Home = () => {
          
     }, [])
     console.log("========", userDetail);
-    const navigate = useNavigate();
- 
-    const handleLogout = () => {               
-        signOut(auth).then(() => {
-        // Sign-out successful.
-            navigate("/signup");
-            console.log("Signed out successfully")
-        }).catch((error) => {
-        // An error happened.
-        });
-    }
+    // const navigate = useNavigate();
  
   return (
-    <>        
-      <nav>
+    <Layout>        
+      <div>
                 <p>
-                    Welcome Home  {userDetail.displayName}
+                    Welcome Home  <span>{userDetail.displayName}</span>
                 </p>
- 
-                <div>
-        			<button onClick={handleLogout}>
-                        Logout
-                    </button>
-        		</div>
-            </nav>
-    </>
+      </div>
+    </Layout>
   )
 }
  
