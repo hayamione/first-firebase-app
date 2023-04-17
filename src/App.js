@@ -4,8 +4,18 @@ import Signup from './page/Signup';
 import Login from './page/Login';
 import { BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
+import firebase from './firebase';
  
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+    })
+  }, [])
+
+  console.log(user);
  
   return (
     <Router>                              

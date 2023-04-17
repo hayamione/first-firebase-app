@@ -26,8 +26,11 @@ code {
 .main-wrapper {
   width: 100%;
   height: 100vh;
-  /* background-image: url(./images/unsplash-img.jpg); */
+  background-image: url(./images/b2.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
 }
 
 p {
@@ -38,13 +41,13 @@ p {
 /* Header */
 .header-section {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.5);
-  box-shadow: 0 4px 6px -1px #0003, 0 2px 4px -1px #0000001f;
-  padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 4px 6px -1px #0003, 0 2px 4px -1px #0000001f;
+    padding: 10px;
 }
 .logo-section img {
   width: 50px;
@@ -69,4 +72,163 @@ p {
   color: #fff;
   font-size: 22px;
   line-height: 1;
+}
+.main-content {
+  height: calc(100% - 70px);
+}
+
+
+/* Sign Up Page */
+.signup-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 400px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 10px;
+  /* box-shadow: 0 5px 10px rgba(0,0,0,0.3); */
+  /* background: rgba(0,0,0,0.6); */
+  box-shadow: -5px 20px 30px 8px rgba(0,0,0,0.45);
+  background: rgba(87, 175, 150, 0.29);
+  color: #fff;
+}
+.card-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+  background: #1b5a85;
+  color: #fff;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.btn-primary {
+  background-color: #1b5a85;
+  border-color: #1b5a85;
+  font-weight: bold;
+  margin-top: 20px;
+  outline : 0 !important;
+  box-shadow: none !important;
+  transition: all ease-in 0.5s;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #14527b;
+  border-color: #14527b;
+}
+.card p {
+  margin: 15px auto 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+.card p a {
+  font-weight: 500;
+  color: #114061 !important;
+}
+.card p a:hover {
+text-decoration: none;
+font-weight: 600;
+}
+.google-login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.google-login-section p {
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn.btn-primary.google-login-btn {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4285f4;
+  border-color: #4285f4;
+  height: 40px;
+  margin-top: 5px;
+  opacity: 1;
+}
+.btn.btn-primary.google-login-btn:hover, .btn.btn-primary.google-login-btn:focus {
+  opacity: 0.9;
+}
+.google-login-btn svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.google-login-btn span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Home Page */
+.home-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.home-page .card {
+  height: 300px;
+  width: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-page .card p {
+margin: 0;
+}
+
+/********************** Error Modal *****************/
+.message-modal .modal-content {
+  color: #fff;
+  box-shadow: -5px 20px 30px 8px rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+.message-modal .modal-header {
+  border-bottom: 0;
+    padding: 10px 10px 0;
+    justify-content: flex-end;
+}
+.message-modal .modal-header button {
+  position: relative;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 20px;
+  background: transparent;
+  color: #fff;
+  box-shadow: none !important;
+  outline: 0 !important;
+  border: 0;
+  line-height: 1;
+}
+.message-modal .modal-header button::before{
+  content: "\f00d";
+}
+.message-modal .modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+.message-modal .modal-body p {
+  font-size: 24px;
+  text-align: center;
 }
