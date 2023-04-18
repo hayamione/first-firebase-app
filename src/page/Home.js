@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import React from "react";
 import { auth } from "../firebase";
-// import { useNavigate } from 'react-router-dom';
-import Layout from "../components/Layout";
+import { Button } from "react-bootstrap";
 
-const Home = () => {
-  const [userDetail, setUserDetail] = useState("");
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        setUserDetail(user);
-      } else {
-        // User is signed out
-        // ...
-        console.log("user is logged out");
-      }
-    });
-  }, []);
-  console.log("========", userDetail);
-  // const navigate = useNavigate();
+const Home = ({user}) => {
 
   return (
-    <Layout>
+    <div className="main-wrapper">
       <div className="home-page">
         <div className="card">
-          <p>
-            Welcome Home <span>{userDetail.displayName}</span>
-          </p>
-          {userDetail.photoURL ? <img src={userDetail.photoURL} alt="" /> : ''}
+          <h3>
+            Welcome Home {user && <span>{user.displayName}</span>}
+          </h3>
+          {user ? (user.photoURL !== null) && <img src={user.photoURL} className="profile-pic" alt="" /> : ''}
+          {user ? 
+          <Button onClick={()=>auth.signOut()} className="logout-btn">
+            Sign Out
+          </Button>
+          :
+          <Button onClick={()=>auth.signOut()} className="logout-btn">
+            Log In
+          </Button>
+          }
         </div>
       </div>
-    </Layout>
+      </div>
   );
 };
 

@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { auth, signInWithGoogle } from "../firebase";
+import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { Google } from "../components/SVGCompnent";
 import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Signup = () => {
-  const navigate = useNavigate();
+const Signup = ({setPage}) => {
 
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -28,7 +25,6 @@ const Signup = () => {
           displayName: displayName,
         });
         // console.log(user);
-        navigate("/login");
         // ...
       })
       .catch((error) => {
@@ -48,42 +44,6 @@ const Signup = () => {
           toast.error("Please enter password.", { autoClose: 3000 });
       });
   };
-
-  // getRedirectResult(auth)
-  // .then((result) => {
-  //   // This gives you a Google Access Token. You can use it to access Google APIs.
-  //   const credential = GoogleAuthProvider.credentialFromResult(result);
-  //   const token = credential.accessToken;
-
-  //   // The signed-in user info.
-  //   const user = result.user;
-  //   // IdP data available using getAdditionalUserInfo(result)
-  //   // ...
-  // }).catch((error) => {
-  //   // Handle Errors here.
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  //   // The email of the user's account used.
-  //   const email = error.customData.email;
-  //   // The AuthCredential type that was used.
-  //   const credential = GoogleAuthProvider.credentialFromError(error);
-  //   // ...
-  // });
-
-  // const handleGoogleLogin = async () => {
-  //   try {
-  //     const googleAuth = new GoogleAuth();
-  //     const { id_token } = await googleAuth.signIn({
-  //       client_id:
-  //         "564080015560-ioioidl01ddj07ae36bhtmo1c7t3bpgr.apps.googleusercontent.com",
-  //       scope: "email",
-  //     });
-  //     const credential = firebase.auth.GoogleAuthProvider.credential(id_token);
-  //     await firebase.auth().signInWithCredential(credential);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   
 
@@ -136,24 +96,8 @@ const Signup = () => {
                   Sign up
                 </Button>
               </form>
-              <div className="google-login-section">
-                <p>OR</p>
-                <Button
-                  className="google-login-btn"
-                  // onClick={handleGoogleLogin}
-                  // onClick={() => {
-                  //   auth
-                  //     .getRedirectResult(provider)
-                  //     .catch((error) => alert(error.message));
-                  // }}
-                  onClick={signInWithGoogle}
-                >
-                  <Google />
-                  <span>Sign In With Google</span>
-                </Button>
-              </div>
               <p>
-                Already have an account? <NavLink to="/login">Sign in</NavLink>
+                Already have an account? <span onClick={()=>setPage('login')}>Log in</span>
               </p>
             </div>
           </div>

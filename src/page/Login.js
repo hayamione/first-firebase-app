@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, signInWithGoogle } from "../firebase";
-import { NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import GoogleLogin from "../components/GoogleLogin";
 
-const Login = () => {
-  const navigate = useNavigate();
+const Login = ({setPage}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +19,6 @@ const Login = () => {
         toast.success("Log in successful.", {
             position: toast.POSITION.TOP_CENTER
           });
-          navigate("/home");
           console.log("user log in ",user);
       })
       .catch((error) => {
@@ -71,8 +69,9 @@ const Login = () => {
                   Login
                 </Button>
               </form>
+              <GoogleLogin />
               <p>
-                No account yet? <NavLink to="/signup">Sign up</NavLink>
+                No account yet? <span onClick={()=>setPage('signup')}>Sign up</span>
               </p>
             </div>
           </div>

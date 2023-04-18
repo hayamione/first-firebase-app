@@ -57,12 +57,12 @@ p {
 .logout-btn, .logout-btn:focus, .logout-btn:hover, .logout-btn:focus-within {
   transition: all .3s;
   border-radius: 8px;
-  width: 40px;
+  width: auto;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #151823;
+  color: #fff;
   border: 0 solid #1b5a85!important;
   background: #1b5a85;
   outline: none!important;
@@ -127,13 +127,20 @@ p {
   font-weight: 400;
   font-size: 16px;
 }
-.card p a {
+.card h3 span  {
   font-weight: 500;
-  color: #114061 !important;
+    color: #114061 !important;
+    display: block;
+    text-align: center;
 }
-.card p a:hover {
-text-decoration: none;
-font-weight: 600;
+.card p span {
+  color: #114061;
+  opacity: 0.9;
+  font-weight: 600;
+}
+.card p span:hover {
+opacity: 1;
+cursor: pointer;
 }
 .google-login-section {
   display: flex;
@@ -159,6 +166,13 @@ font-weight: 600;
 }
 .btn.btn-primary.google-login-btn:hover, .btn.btn-primary.google-login-btn:focus {
   opacity: 0.9;
+}
+.card .profile-pic {
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .google-login-btn svg {
   display: block;
