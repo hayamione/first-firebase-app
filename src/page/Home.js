@@ -9,7 +9,7 @@ const Home = ({user}) => {
       <div className="home-page">
         <div className="card">
           <h3>
-            Welcome Home {user && <span>{user.displayName}</span>}
+            Hello World {user && <span>{user.displayName}</span>}
           </h3>
           {user ? (user.photoURL !== null) && <img src={user.photoURL} className="profile-pic" alt="" /> : ''}
           {user ? 
