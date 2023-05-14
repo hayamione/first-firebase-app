@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/first-firebase-app/static/css/main.3c6b3bf4.css",
+    "main.js": "/first-firebase-app/static/js/main.d3142c4c.js",
+    "static/js/787.f3d7924f.chunk.js": "/first-firebase-app/static/js/787.f3d7924f.chunk.js",
+    "static/media/b2.jpg": "/first-firebase-app/static/media/b2.2ffbde34739dff9b9536.jpg",
+    "index.html": "/first-firebase-app/index.html",
+    "main.3c6b3bf4.css.map": "/first-firebase-app/static/css/main.3c6b3bf4.css.map",
+    "main.d3142c4c.js.map": "/first-firebase-app/static/js/main.d3142c4c.js.map",
+    "787.f3d7924f.chunk.js.map": "/first-firebase-app/static/js/787.f3d7924f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c6b3bf4.css",
+    "static/js/main.d3142c4c.js"
+  ]
+}
